@@ -9,12 +9,14 @@ import {EmployeeService} from '../employee.service';
 })
 
 export class TablelistComponent implements OnInit {
-newtitle = '';
+allusers=[]
 
-  constructor(private _employeeService: EmployeeService) { }
+  constructor(private _employeeService: EmployeeService) {
+    
+   }
 
   ngOnInit() {
-    this.newtitle =  this._employeeService.listAllEmployees();
+    this.allusers  =  this._employeeService.listAllEmployees();
     
   } 
 
