@@ -1,11 +1,8 @@
 {
   "users": [
-    { "id": 1,
-      "firstName": "Anusha", 
-      "lastName": "Kaparapu", 
-      "fullName":"anusha kaparapu", 
-      "email":"anusha@gmail.com", 
-      "age":"28"
-      }
+    {
+      "EID": 1,
+      "ENAME": "jonah"     
+    }
   ]
 }

@@ -12,12 +12,12 @@ export class TablelistComponent implements OnInit {
 allusers=[]
 
   constructor(private _employeeService: EmployeeService) {
-    
+     
    }
 
   ngOnInit() {
     this.allusers  =  this._employeeService.listAllEmployees();
-    
+     console.log("all users:::",this.allusers)
   } 
 
 }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HttpModule} from "@angular/http";
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ServicesComponent } from './services/services.component';
@@ -9,19 +10,32 @@ import { TablelistComponent } from './tablelist/tablelist.component';
 import { EditingComponent } from './editing/editing.component';
 
 import {Routes, RouterModule} from '@angular/router';
+import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes =[
   {
     path:"",
-    redirectTo:'tablelist',
+    redirectTo:'',
     pathMatch:'full'
     
   },
   {
+    path:"homepage",
+    component:HomepageComponent
+  },
+  {
+    path:"add",
+    component:AddComponent
+  },
+  {
     path:"tablelist",
     component:TablelistComponent
-  }
-  
+  },  
+  {
+    path:"editing",
+    component:EditingComponent
+  },
+   
 ]
 
 @NgModule({
@@ -30,10 +44,12 @@ const routes: Routes =[
     ServicesComponent,
     AddComponent,
     TablelistComponent,
-    EditingComponent
+    EditingComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
