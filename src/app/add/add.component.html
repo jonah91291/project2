@@ -8,10 +8,10 @@
 
 
         <label for="EID"> E-ID </label>
-        <input type="text" class="form-control" id="EID" required  name="EID">
+        <input type="text" class="form-control" id="EID" [(ngModel)]="empInformation.EID" name="EID">
     
         <label for="ENAME"> E-NAME </label>
-        <input type="text" class="form-control" id="ENAME" required  name="ENAME">
+        <input type="text" class="form-control" id="ENAME" [(ngModel)]="empInformation.ENAME" name="ENAME">
     
         <button type="submit" class="button" (click)="addEmployee()">Submit</button>
    

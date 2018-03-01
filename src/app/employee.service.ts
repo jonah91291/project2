@@ -4,17 +4,25 @@ import 'rxjs/add/operator/map';
 import { Router } from '@angular/router';
 @Injectable()
 export class EmployeeService {
-  users =[]
-  empInformation = new Details();
-    
+    users = [];
  
   
   constructor(private http:Http,private router :Router) {
     
      
-   //this.listAllEmployees();
    
    }
+
+   addEmployee(model){
+    return this.http.post("http://localhost:3000/users", model).map(s=>{
+        if(s.json().isSuccessful){
+         
+        }
+        return s;
+    });
+   }
+    
+
 //Function to list employee details
   listAllEmployees(){
     
@@ -28,32 +36,13 @@ export class EmployeeService {
       console.log("q",this.users)
       return this.users;
   }
-   //Function to add employee details
-  addEmployee(){
-   console.log("i'm here");
-   console.log(this.empInformation)
-   var tousethis = this;
-   var model = JSON.parse(JSON.stringify(this.empInformation));
-   this.http.post("http://localhost:3000/users",model).subscribe(function(d)
-   {
-    console.log("data",d)
-    tousethis.router.navigate(['/tablelist']);
-  })
-  this.empInformation = new Details();
-  }
-     //Function to edit employee details
-  editEmployee(){
-
-  }
-
-     //Function to delete employee details
-  deleteEmployee(){
-
-  }
-
   
+  deleteEmployee(){
+    
+    }
+    editEmployee(){
+    
+    }
+      
 }
-  class Details {
-  public EID: Number;
-  public ENAME: String;
-  }
+  
