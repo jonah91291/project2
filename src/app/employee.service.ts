@@ -15,34 +15,39 @@ export class EmployeeService {
 
    addEmployee(model){
     return this.http.post("http://localhost:3000/users", model).map(s=>{
-        if(s.json().isSuccessful){
-         
-        }
-        return s;
+       
+        return s.json();
     });
    }
     
 
 //Function to list employee details
   listAllEmployees(){
-    
-    //return "My New Employee Service!!!!!!!!! ;-)"
-      this.http.get("http://localhost:3000/users").map((response: Response)=> response.json()).subscribe(
-        q=>{
-        this.users=q;
-        //console.log("q",q)
-        //return this.users;
-      })
-      console.log("q",this.users)
-      return this.users;
+      return this.http.get("http://localhost:3000/users").map(s=>{
+         return s.json();
+     });
+     
   }
   
-  deleteEmployee(){
-    
+  deleteEmployee(y){
+    return this.http.delete("http://localhost:3000/users/"+y).map(s=>{
+      return s.json(); 
+    });
     }
-    editEmployee(){
-    
-    }
+
+
+    editEmployee(model){
+      return this.http.put("http://localhost:3000/users/"+model.id,model).map(s=>{
+        return s.json();
+    })
+  }
+
+  getEmployee(id){
+    return this.http.get("http://localhost:3000/users/"+id).map(s=>{
+       return s.json();
+   });
+   
+}
       
 }
   

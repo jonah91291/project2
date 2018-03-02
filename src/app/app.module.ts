@@ -8,9 +8,11 @@ import { ServicesComponent } from './services/services.component';
 import { AddComponent } from './add/add.component';
 import { TablelistComponent } from './tablelist/tablelist.component';
 import { EditingComponent } from './editing/editing.component';
+import {EmployeeService} from './employee.service';
 
 import {Routes, RouterModule} from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
+import { EdituserComponent } from './edituser/edituser.component';
 
 const routes: Routes =[
   {
@@ -35,6 +37,10 @@ const routes: Routes =[
     path:"editing",
     component:EditingComponent
   },
+  {
+    path:"edit/:id",
+    component:EdituserComponent
+  },
    
 ]
 
@@ -45,7 +51,8 @@ const routes: Routes =[
     AddComponent,
     TablelistComponent,
     EditingComponent,
-    HomepageComponent
+    HomepageComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +60,7 @@ const routes: Routes =[
     RouterModule.forRoot(routes),
     FormsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

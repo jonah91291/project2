@@ -9,15 +9,19 @@ import {EmployeeService} from '../employee.service';
 })
 
 export class TablelistComponent implements OnInit {
-allusers=[]
+users;
 
   constructor(private _employeeService: EmployeeService) {
      
    }
 
   ngOnInit() {
-    this.allusers  =  this._employeeService.listAllEmployees();
-     console.log("all users:::",this.allusers)
+    console.log("in ngoninit");
+    this._employeeService.listAllEmployees().subscribe(s=>{
+      this.users = s;
+      console.log("User:::",this.users)
+    });
+     
   } 
 
 }
